@@ -1,8 +1,11 @@
-from __future__ import unicode_literals
-
+from django.contrib.auth.models import User
 from django.db import models
 
-class Profile(models.Model):
+
+class Followers(models.Model):
     user = models.ForeignKey(User)
-    oauth_token = models.CharField(max_length=200)
-    oauth_secret = models.CharField(max_length=200)
+    id_str = models.CharField(max_length=200)
+    screen_name = models.CharField(max_length=200)
+    url = models.URLField(max_length=200, null=True)
+    location = models.CharField(max_length=200, null=True)
+    description = models.CharField(max_length=200, null=True)

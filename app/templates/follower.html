@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ follower.screen_name }}</h1>
+  <p>ID: {{ follower.id_str }}</p>
+  <p>location: {{ follower.location|default:"-" }}</p>
+  <p>description: {{ follower.description|default:"-"  }}</p>
+  <p>url: {{ follower.url|default:"-"  }}</p>
+  <a href="/">Return</a>
+{% endblock content %}
