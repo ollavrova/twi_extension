@@ -8,7 +8,7 @@
     <p>{% if message %} {{ message }} {% endif %}</p>
 
     <form method="post" action="{% url 'search' %}">{% csrf_token %}
-      <input name="q" value="{% if q %}{{ q }}{% endif %}">
+      <input name="q" value="{% if q %}{{ q }}{% endif %}" placeholder="search by followers">
       <input type="submit" value="Search">
       <a href="/"><input type="button" value="Reset"></a>
     </form>

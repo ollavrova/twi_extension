@@ -21,12 +21,12 @@ def logout(request):
 
 
 def follower(request, id):
-    follower = Followers.objects.get(id_str=id)
+    follower = Followers.objects.get(id_str=id, user=request.user)
     return render(request, 'follower.html', {'follower': follower})
 
 
 def search(request):
     q = request.POST.get('q')
-    result = Followers.objects.filter(screen_name__istartswith=q)
+    result = Followers.objects.filter(screen_name__icontains=q, user=request.user)
     message = str(result.count()) + ' found!'
     return render(request, 'home.html', {'followers': result, 'q': q, 'message': message})
