@@ -23,3 +23,10 @@ def logout(request):
 def follower(request, id):
     follower = Followers.objects.get(id_str=id)
     return render(request, 'follower.html', {'follower': follower})
+
+
+def search(request):
+    q = request.POST.get('q')
+    result = Followers.objects.filter(screen_name__istartswith=q)
+    message = str(result.count()) + ' found!'
+    return render(request, 'home.html', {'followers': result, 'q': q, 'message': message})

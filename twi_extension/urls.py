@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^follower/(?P<id>\d+)/$', views.follower, name='follower'),
+    url(r'^search/$', views.search, name='search'),
 
 ]
